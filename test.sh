@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=3 python test.py --config_file 'path_of_checkpoint/configs.yaml'  --i2t_metric
