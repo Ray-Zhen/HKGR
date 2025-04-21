@@ -60,18 +60,19 @@ pip install -r requirements.txt
 ```
 
 ### Training  
+Take the CUHK_PEDES dataset for example: 
 ```bash  
-python train.py --dataset CUHK-PEDES --batch_size 64 --lr 1e-5 --gpu 0  
+sh ./options/run_cuhk_pedes.sh  
 ```
 **Key Arguments**:  
 
-- `--dataset`: Dataset name (`CUHK-PEDES`, `ICFG-PEDES`, `RSTPReid`).  
-- `--mask_ratio`: Token masking ratio (default: `0.3`).  
-- `--use_clip`: Enable CLIP pre-trained weights (default: `True`).  
+- `--root_dir`: Dataset path(`CUHK-PEDES`, `ICFG-PEDES`, `RSTPReid`).  
+- `--mlm_type`: Token masking type (default: 'obj+attr+rel`).  
+- `--loss_names`: loss function (default: `sdm+mlm`).  
 
 ### Evaluation  
 ```bash  
-python test.py --dataset CUHK-PEDES --checkpoint ./checkpoints/best_model.pth  
+CUDA_VISIBLE_DEVICES=0 python test.py --config_file 'path_of_checkpoint/configs.yaml' 
 ```
 
 ---
